@@ -1,0 +1,12 @@
+# Configuration for Jekyll (website)
+title: MTeck's Resume
+description: Personal Resume and CV that I have maintained since college.
+url: "https://mtecknology.github.io"
+baseurl: "/latex-resume"
+
+remote_theme: pages-themes/time-machine@v0.2.0
+plugins:
+- jekyll-remote-theme
+
+exclude:
+  - README.md

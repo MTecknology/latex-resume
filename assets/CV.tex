@@ -1,0 +1,246 @@
+%%%%%%%%%%%%%%
+% My History %
+%%%%%%%%%%%%%%
+\documentclass[letterpaper,hidelinks,11pt]{article}
+\usepackage{mteck}
+
+% Uncomment the following line to create PDF with "Redacted" text.
+%\redacttrue
+
+% Add numbered pages to the footer, although 2-page resumes are rarely skimmed
+\numberedPages{My CV, Page }{ of }
+
+% Customize colors (Available: Title, Heading, HRule, Callout)
+\definecolor{Title}{HTML}{388fa0}
+%\definecolor{Heading}{HTML}{HEX-COLOR}
+%\definecolor{HRule}{HTML}{HEX-COLOR}
+%\definecolor{Callout}{HTML}{HEX-COLOR}
+
+
+\begin{document}
+
+  %----------------%
+  % Name / Details %
+  %----------------%
+
+  % NOTE: Use " ~ | ~ " (without quotes) to ensure adequate spacing between words for ATS parsing
+  \documentTitle{J. Doe}{
+
+    \redaction{
+      \raisebox{-0.05\height} \faPhone\ [redacted - web copy] ~ | ~
+      \raisebox{-0.15\height} \faEnvelope\ [redacted - web copy] ~ | ~
+    }{
+      % Contact Information
+      \href{tel:1234567890}{
+        \raisebox{-0.05\height} \faPhone\ 123-456-7890} ~ | ~
+      \href{mailto:user@domain.tld}{
+        \raisebox{-0.15\height} \faEnvelope\ USER@domain.tld} ~ | ~
+    }
+    % Social Links
+    \href{https://linkedin.com/in/USER/}{
+      \raisebox{-0.15\height} \faLinkedin\ linkedin.com/in/USER} ~ | ~
+    \href{https://github.com/USER}{
+      \raisebox{-0.15\height} \faGithub\ github.com/USER}
+  }
+
+  %----------------%
+  % Title / Skills %
+  %----------------%
+
+  \vspace{-1.5em}
+  \documentTitleTwo{Senior Business Person}{\textbf{
+    Business ~ $|$ ~ Hobbies ~ $|$ ~ Awesomeness 
+  }}
+
+  %---------%
+  % Summary %
+  %---------%
+
+  \tinysection{Professional Summary}
+  {\color{Callout} This example demonstrates mteck.sty used for a Curriculum Vitae.\\
+  For careers that do not use a CV, maintaining one still provides a great resource for R\'esum\'e content.}
+
+  %--------%
+  % Skills %
+  %--------%
+
+  \section{Technical Competencies}
+
+  I am a \U{strong} business person. My strengths are business administration and business development.
+
+  \begin{itemize}[itemsep=0px, parsep=1pt, leftmargin=2in]
+
+    \itemHeading{\U{Business Administration}}
+    \item[\textbf{Management}] People, Systems, \U{Operations}, Projects
+    \item[\textbf{Business}] Analysis, Strategy, Development, Planning
+    \item[\textbf{Finance}] Budgeting, \U{Forecasting}, Reporting
+    \item[\textbf{Operations}] Process Improvement, Resource Allocation, Quality Assurance
+    \item[\textbf{Strategy}] Competitive Analysis, Market Positioning, Growth Strategies
+    \item[\textbf{Development}] Business Plans, Product Development, Market Expansion
+
+    \itemHeading{Business Development}
+    \item[\textbf{Sales}] B2B, B2C, Lead Generation, CRM
+    \item[\textbf{Marketing}] \U{Research}, Campaigns, Social Media, SEO
+    \item[\textbf{Software}] OpenOffice, CRM, ERP, Data Analysis
+    \item[\textbf{Communication}] Presentations, Negotiations, Networking
+    \item[\textbf{Project Management}] Agile, Waterfall, Risk Management
+
+  \end{itemize}
+
+  %------------%
+  % Experience %
+  %------------%
+
+  \section{Professional Experience}
+
+  \headingIt{Power Business Ink}{2024 -- Present}
+  \subheadBf{Senior Business Engineer}{on-site}
+  \p{Power Business Ink is a leading provider of business solutions, specializing in
+     innovative strategies to enhance operational efficiency and drive growth for clients
+     across various industries.}
+  \p{I joined this company as part of an bankruptcy acquisition to help stabilize and grow
+     the business. My role focuses on leveraging my expertise in business management to
+     implement effective strategies that improve overall performance and client satisfaction.}
+  \begin{resume_list}
+    \item Conducted \B{market research} to identify new business opportunities
+    \item Negotiated \B{business contracts} that saved the company over \$100,000 annually
+    \item Coordinated cross-functional teams to \B{deliver projects} on time and within budget
+    \item Monitored \B{business performance} using key metrics and KPIs
+    \item Developed \B{business strategies} to enhance market presence and competitiveness
+    \item Managed \B{sales strategies} to increase revenue and market share
+    \item Utilized \B{business analytics} to drive data-informed decision making
+  \end{resume_list}
+
+  \headingIt{Consulting Corp}{2017 -- 2024}
+  \subheadBf{Senior Business Consultant}{hybrid}
+  \p{Consulting Corp is a global consulting firm that provides expert advice and solutions
+     to businesses seeking to improve their operations, strategy, and overall performance.}
+  \p{As a Senior Business Consultant, I worked with diverse clients to analyze their business
+     processes, identify areas for improvement, and implement effective solutions that drive
+     growth and efficiency.}
+  \begin{resume_list}
+    \itemTitle{Client: Notable Placement}
+    \item Implemented \B{business strategies} that increased revenue by 20\%
+    \item Developed and \B{maintained relationships} with key business stakeholders
+    \item Spearheaded business initiatives that improved \B{operational efficiency}
+    \vspace{3pt}
+    \itemTitle{Client: Challenges Unlimited}
+    \item Managed business for a major business, ensuring \B{business continuity}
+    \item Developed \B{business plans} that \BIt{resolved 80\% of business issues}
+    \item Led a team of business professionals to achieve \B{business goals}
+    \item Ran negotiations that \B{saved over \$500,000} in annual costs
+    \vspace{3pt}
+    \itemTitle{Client: Broken Galleries}
+    \item Assisted in the development of \B{business strategies} for market expansion
+    \item Conducted \B{market research} to identify potential growth opportunities
+    \item Collaborated with cross-functional teams to implement \B{business solutions}
+    \item Developed training materials and conducted workshops to enhance \B{business skills} of staff
+  \end{resume_list}
+
+  %\experience{HealthCo Industries}{Junior Business Manager}{on-site}{2005 -- 2016}
+  \headingIt{HealthCo Industries}{2005 -- 2016}
+  \subheadBf{Junior Business Manager}{on-site}
+  \p{HealthCo Industries is a leading healthcare organization dedicated to providing
+     high-quality medical services and innovative healthcare solutions to communities
+     worldwide.}
+  \p{As a Junior Business Manager, I supported the senior management team in overseeing
+     various business operations, contributing to the development and implementation of
+     strategies that enhanced organizational efficiency and patient care.}
+  \begin{resume_list}
+    \item Developed \B{business plans} that \BIt{resolved 80\% of business issues}
+    \item Led a team of business professionals to achieve \B{business goals}
+    \item Installed new \B{business processes} that improved efficiency by 15\%
+    \item Led \B{business meetings} and negotiations with stakeholders
+    \item Handled \B{budgeting}, forecasting, and financial reporting
+    \item Regained client trust through effective \B{communication} and service recovery
+    \item Maintained values in a \B{spreadsheet}, verifying accuracy of calculations
+    \item Created \B{presentations} to communicate business performance to stakeholders
+    \item Trained new employees on \B{business operations} and customer service protocols
+  \end{resume_list}
+  
+  \headingIt{Aurec Systems}{1999 -- 2005}
+  \subheadBf{Product Strategy Lead}{hybrid}
+  \p{Aurec Systems is a mid-sized technology firm focused on delivering enterprise
+     software and strategic product solutions to regulated industries.}
+  \p{As Product Strategy Lead, I drove product roadmaps, aligned stakeholders,
+     and launched initiatives that increased customer retention and revenue.}
+  \begin{resume_list}
+    \item Led the \B{product strategy} and roadmap for three major product lines
+    \item Defined \B{go-to-market} plans that increased adoption by 30\%
+    \item Coordinated cross-functional teams for successful \B{product launches}
+    \item Built and prioritized a \B{feature backlog} using customer insights
+    \item Performed \B{competitive analysis} to inform pricing and positioning
+    \item Managed stakeholder communications and \B{executive reporting}
+    \item Negotiated partnerships that expanded distribution channels
+    \item Optimized onboarding to reduce time-to-value by 25\%
+    \item Conducted customer interviews and \B{usability testing}
+    \item Implemented pricing experiments that improved \B{margin} by 8\%
+    \item Trained sales teams on product \B{value propositions} and demos
+    \item Led quarterly \B{planning workshops} and creating session roadmaps
+    \item Drove integrations with third-party platforms for \B{ecosystem growth}
+    \item Mentored junior product managers and fostered a \B{product culture}
+  \end{resume_list}
+
+  \headingIt{Fuzion Labs}{1980 -- 1999}
+  \subheadBf{Business Operations Manager}{on-site}
+  \p{Fuzion Labs is a boutique consultancy specializing in operational improvement
+     and transformation for growth-stage companies.}
+  \p{In this role I optimized core operations, introduced scalable processes,
+     and supported executive initiatives to improve profitability.}
+  \begin{resume_list}
+    \item Designed and implemented \B{standard operating procedures} across teams
+    \item Streamlined procurement processes to reduce costs by 12\%
+    \item Introduced OKRs and \B{performance metrics} for company-wide alignment
+    \item Managed vendor relationships and negotiated service-level agreements
+    \item Led process improvement projects using Lean \B{methodologies}
+    \item Rolled out a new \B{CRM} and migrated legacy data with minimal downtime
+    \item Developed budgeting templates and improved \B{forecast accuracy}
+    \item Created a scalable hiring process and reduced time-to-hire by 20\%
+    \item Coordinated cross-functional \B{change management} initiatives
+    \item Implemented automated reporting to reduce manual work by 40\%
+    \item Conducted risk assessments and built \B{mitigation plans}
+    \item Facilitated leadership offsites to define strategic priorities
+    \item Drove vendor consolidation and achieved \B{savings} across services
+    \item Launched an employee training program to upskill operations staff
+    \item Measured and reported on \B{operational KPIs} to the board
+  \end{resume_list}
+
+  %-----------%
+  % Education %
+  %-----------%
+
+  \section{Education}
+
+  \headingBf{Neat-O University}{} % Note: Adding year(s) exposes an implied age
+  \subheadIt{~ ~ Bachelor of Science in \B{Business Management}}{}
+  \subheadIt{~ ~ Minors: Marketing ; Finance}{}
+
+  \vspace{1em}
+  \headingBf{Certifications:}{}
+  \vspace{-1em}
+  \begin{resume_list}
+    \item \textbf{BMP} Business Management Professional
+    \item \textbf{CP} Certified Professional
+  \end{resume_list}
+
+  %----------------------------%
+  % Extracurricular Activities %
+  %----------------------------%
+
+  \section{Volunteer Experience}
+
+  \experience{Business Mentors}{Mentor}{}{2014 -- Present}
+  \begin{resume_list}
+    \item Provided guidance and support to aspiring business professionals
+    \item Assisted mentees in developing business plans and strategies
+    \item Shared industry insights and best practices to enhance mentees' skills
+  \end{resume_list}
+
+  \experience{Angel Investors}{Financial Advisor}{}{2005 -- 2015}
+  \begin{resume_list}
+    \item Provided financial advice and guidance to early-stage startups
+    \item Assisted in evaluating investment opportunities and assessing business potential
+    \item Collaborated with entrepreneurs to develop strategic plans and improve business operations
+  \end{resume_list}
+
+\end{document}

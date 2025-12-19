@@ -1,0 +1,284 @@
+%=========================================%
+% MTecknology's Resume/CV Style for LaTeX %
+%-----------------------------------------%
+% Author: Michael Lustfield               %
+% License: CC-BY-4                        %
+% - https://creativecommons.org/licenses/by/4.0/legalcode.txt
+%=========================================%
+
+%--------------%
+% Dependencies %
+%--------------%
+
+% Required packages
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{bookmark}
+\usepackage{lastpage}  % Requires second build!
+\usepackage{calc}
+\usepackage{needspace}
+\usepackage{xcolor}
+
+%------------------%
+% Basic Page Setup %
+%------------------%
+
+% Font: Sans-Serif
+%\usepackage[sfdefault]{FiraSans}
+%\usepackage[sfdefault]{roboto}
+%\usepackage[sfdefault]{noto-sans}
+%\usepackage[default]{sourcesanspro}
+
+% Font: Serif
+\usepackage{CormorantGaramond}
+\usepackage{charter}
+
+% Colors
+% Use with \color{Color-Name}
+\definecolor{Title}{HTML}{0e6e55}
+\definecolor{Heading}{HTML}{0e6e55}
+\definecolor{HRule}{HTML}{a16f0b}
+\definecolor{Callout}{HTML}{b50013}
+
+% Default bullet used in itemized lists
+\renewcommand\labelitemi{--}
+
+%---------------------%
+% Advanced Page Setup %
+%---------------------%
+
+% Misc. Options
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\urlstyle{same}
+
+% Adjust Margins
+\addtolength{\oddsidemargin}{-0.7in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\textheight}{1.4in}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\setlength{\tabcolsep}{0pt}
+\setlength{\footskip}{0.4em}
+\raggedbottom
+\raggedright
+
+% ATS Readability
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+%---------------------%
+% Convenient Aliases %
+%---------------------%
+
+% Font: Bold
+\newcommand{\B}[1]{\textbf{#1}}
+
+% Font: Italic
+\newcommand{\It}[1]{\textit{#1}}
+
+% Font: Bold + Italic
+\newcommand{\BIt}[1]{\textbf{\textit{#1}}}
+
+% Font: Underline
+\newcommand{\U}[1]{\underline{#1}}
+
+% Feature: Creates a "paragraph" of text,
+% intended to fit below sections and headings
+% Use with \p{Some Text}
+\newcommand{\p}[1]{
+  %\vspace{0.5em}
+  \begin{addmargin}[1.5em]{1.5em}
+    #1
+  \end{addmargin}
+  %\vspace{0.5em}
+}
+
+%------------------%
+% Special Features %
+%------------------%
+
+% Simple wrapper to set up page numbering
+% Usage: \numberedPages{label}{page_separator}
+% Example: \numberedPages{My Resume, Page }{ of }
+% WARNING: Must run pdflatex twice!
+\newcommand{\numberedPages}[2]{
+  \documentFooter{\hspace{1in}#1\thepage#2\pageref{LastPage}}
+}
+
+% Feature: Redact Text
+% Toggle between two versions of text
+% Usage: \redaction{Redacted Text}{Private Text}
+% Toggle with \redacttrue or \redactfalse
+\newcommand{\redaction}[2]{
+  \ifredact
+    #1% Show redaction text when \redact is true
+  \else
+    #2% Show real text when \redact is false
+  \fi
+}
+
+% Create a boolean variable named redact
+\newif\ifredact
+
+% Default to show real text (do not redact)
+\redactfalse
+
+%-------------%
+% Page Titles %
+%-------------%
+
+% Feature: Centered title along with "subtitle" between HR
+% Usage: \documentTitle{Person Name}{Contact Details}
+\newcommand{\documentTitle}[2]{
+  \begin{center}
+    {\Huge\color{Title} \textbf{#1}}
+    \vspace{0.5em}
+    {\color{HRule} \hrule}
+    \vspace{2pt}
+    %{\footnotesize\color{Title} #2}
+    \footnotesize{#2}
+    \vspace{2pt}
+    {\color{HRule} \hrule}
+  \end{center}
+}
+
+% Feature: Second version of documentTitle, designed for dual use
+% Usage: \documentTitleTwo{Target Title}{Keywords}
+\newcommand{\documentTitleTwo}[2]{
+  \begin{center}
+    {\Large\color{Title} #1}
+    \vspace{0.7em}
+    {\color{HRule} \hrule}
+    \vspace{2pt}
+    %{\footnotesize\color{Title} #2}
+    \footnotesize{#2}
+    \vspace{2pt}
+    {\color{HRule} \hrule}
+  \end{center}
+}
+
+%------------------------%
+% Headings / Subheadings %
+%------------------------%
+
+% Feature: Section heading with horizontal rule
+% Usage: \section{Title}
+\titleformat{\section}{
+  \vspace{-1.0em}% CAREFUL!
+  \needspace{7em}
+  \color{Heading}
+  \raggedright\large\bfseries
+}{}{0em}{\uppercase}[\color{HRule}\titlerule]
+
+% Feature: Section heading with separator and content on same line
+% Usage: \tinysection{Title}
+\newcommand{\tinysection}[1]{
+  \phantomsection
+  \addcontentsline{toc}{section}{#1}
+  {\large{\bfseries\color{Heading}\uppercase{#1}} {\color{HRule} |}}
+}
+
+% Feature: Repurposed \heading, used for simplified work experience
+% Usage: \experience{Company}{Role}{Presence}{Dates}
+\newcommand{\experience}[4]{
+  \hspace{1em}#1 -- \textbf{#2}\hfill\textit{#3}
+  \ifx\\#3\\\else ~ $|$ \fi
+  \makebox[6.7em][l]{~#4}\\
+}
+
+% Feature: Indented line with arguments left/right aligned in document
+% Usage: \heading{Left}{Right}
+\newcommand{\heading}[2]{
+  \needspace{7em}
+  \hspace{1em}#1\hfill#2\\
+}
+
+%------------------------%
+% Variations of \heading %
+%------------------------%
+
+% Same as \heading with bold font
+\newcommand{\headingBf}[2]{
+  \heading{\textbf{#1}}{\textbf{#2}}
+}
+
+% Same as \heading with italic font
+\newcommand{\headingIt}[2]{
+  \heading{\textit{#1}}{\textit{#2}}
+}
+
+% Same as \heading without suggested page break
+\newcommand{\subhead}[2]{
+  \hspace{1em}#1\hfill#2\\
+}
+
+% Same as \subhead with bold font
+\newcommand{\subheadBf}[2]{
+  \subhead{\textbf{#1}}{\textbf{#2}}
+}
+
+% Same as \heading with italic font
+\newcommand{\subheadIt}[2]{
+  \subhead{\textit{#1}}{\textit{#2}}
+}
+
+%-----------------------%
+% Lists / List Headings %
+%-----------------------%
+
+% Feature: Template for itemized lists
+% Usage: \begin{resume_list} [items] \end{resume_list}
+\newenvironment{resume_list}{
+  %\vspace{-0.5em}
+  \needspace{5em}
+  \begin{itemize}[itemsep=-2px, parsep=1pt, leftmargin=2em]
+}{
+  \end{itemize}
+}
+
+% Feature: Formats an item to use as an itemized title
+% Usage: \itemTitle{Title}
+\newcommand{\itemTitle}[1]{
+  \needspace{5em}
+  \item[] \underline{#1}
+  \vspace{0.5em}
+}
+
+% Feature: Alternative display of \itemTitle
+% Usage: \itemHeading{Title}
+\newcommand{\itemHeading}[1]{
+  \needspace{5em}
+  \vspace{0.5em}
+  \item[] \textbf{#1}
+}
+
+%--------------------%
+% Auxiliary Features %
+%--------------------%
+
+% Feature: Create a footer with correct padding
+% Usage: \documentFooter{\thepage of X}
+\newcommand{\documentFooter}[1]{
+  \setlength{\footskip}{2em}
+  \addtolength{\textheight}{-2em}
+  \fancyfoot[C]{\footnotesize #1}
+}
+
+% Feature: Alternative to addmargin that mimics scrextend
+% https://tex.stackexchange.com/questions/507939/standard-alternative-to-addmargin-environment
+\newenvironment{addmargin}[2][\empty]{\par
+  \rightskip=#2\relax
+  \ifx\empty#1\relax \leftskip=\rightskip
+  \else \leftskip=#1\relax
+  \fi
+}{\par}

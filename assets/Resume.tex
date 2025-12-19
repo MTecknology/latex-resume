@@ -1,0 +1,166 @@
+%%%%%%%%%%%%%%
+% My Summary %
+%%%%%%%%%%%%%%
+\documentclass[letterpaper,hidelinks,11pt]{article}
+\usepackage{mteck}
+
+% Uncomment the following line to create PDF with "Redacted" text.
+\redacttrue
+
+% Add numbered pages to the footer, although 2-page resumes are rarely skimmed
+%\numberedPages{My Resume, Page }{ of }
+
+% Customize colors (Available: Title, Heading, HRule, Callout)
+%\definecolor{Title}{HTML}{HEX-COLOR}
+%\definecolor{Heading}{HTML}{HEX-COLOR}
+%\definecolor{HRule}{HTML}{HEX-COLOR}
+%\definecolor{Callout}{HTML}{HEX-COLOR}
+
+\begin{document}
+
+  %----------------%
+  % Name / Details %
+  %----------------%
+
+  % NOTE: Use " ~ | ~ " (without quotes) to ensure adequate spacing between words for ATS parsing
+  \documentTitle{J. Doe}{
+
+    % NOTE: This has two versions of contact information: \redaction{Redacted Text}{Private Text}
+    \redaction{
+      \raisebox{-0.05\height} \faPhone\ [redacted - web copy] ~ | ~
+      \raisebox{-0.15\height} \faEnvelope\ [redacted - web copy] ~ | ~
+    }{
+      % Contact Information
+      \href{tel:1234567890}{
+        \raisebox{-0.05\height} \faPhone\ 123-456-7890} ~ | ~
+      \href{mailto:user@domain.tld}{
+        \raisebox{-0.15\height} \faEnvelope\ USER@domain.tld} ~ | ~
+    }
+    % Social Links
+    \href{https://linkedin.com/in/USER/}{
+      \raisebox{-0.15\height} \faLinkedin\ linkedin.com/in/USER} ~ | ~
+    \href{https://github.com/USER}{
+      \raisebox{-0.15\height} \faGithub\ github.com/USER}
+  }
+
+  %----------------%
+  % Title / Skills %
+  %----------------%
+
+  \vspace{-1.5em}
+  \documentTitleTwo{Senior Business Person}{\textbf{
+    Business ~ $|$ ~ Hobbies ~ $|$ ~ Awesomeness 
+  }}
+
+  %---------%
+  % Summary %
+  %---------%
+
+  \tinysection{Summary}
+  {\color{Callout} This is an overly-packed and busy example showing what the template is capable of.}
+
+  %------------%
+  % Highlights %
+  %------------%
+
+  % NOTE: Colors can be placed anywhere within document to change color after that point
+  \definecolor{Heading}{HTML}{1f1d8e}
+
+  \section{Highlights}
+
+  \begin{resume_list}
+    % NOTE: Comments are a great way to keep good content that doesn't fit in this version.
+    %   -> remove either of the following comments, and this document becomes two pages
+    %\item Drove integrations with third-party platforms for \B{ecosystem growth}
+    %\item Coordinated cross-functional \B{change management} initiatives
+    \item Managed business for a major business, ensuring \B{business continuity}
+    \item Developed \B{business plans} that \BIt{resolved 80\% of business issues}
+    \item Led a team of business professionals to achieve \B{business goals}
+    \item Implemented \B{business strategies} that increased revenue by 20\%
+    \item Ran negotiations that \B{saved over \$500,000} in annual costs
+    \item Drove integrations with third-party platforms for \B{ecosystem growth}
+    \item Spearheaded business initiatives that improved \B{operational efficiency}
+    \item Coordinated cross-functional teams to \B{deliver projects} on time and within budget
+  \end{resume_list}
+
+  %--------%
+  % Skills %
+  %--------%
+
+  \section{Skills Pool}
+
+  % CAUTION: Multi-column lists are difficult for ATS to process and may become word blobs
+  \begin{multicols}{2}
+    \begin{itemize}[itemsep=-2px, parsep=1pt, leftmargin=1.0in]
+      \item[\textbf{Management}] People, Systems, Operations, Projects
+      \item[\textbf{Business}] Analysis, Strategy, Development, Planning
+      {\color{Callout}
+        \item[\textbf{Finance}] Budgeting, Forecasting, Reporting
+        \item[\textbf{Sales}] B2B, B2C, Lead Generation, CRM
+      } % NOTE: Color can also be changed for arbitrary sections using { } to define scope
+      \item[\textbf{Marketing}] Research, Campaigns, Social Media, SEO
+      \item[\textbf{Software}] OpenOffice, CRM, {\color{Heading} ERP, Data Analysis}
+    \end{itemize}
+  \end{multicols}
+
+  \section{Key Skills}
+
+  \begin{resume_list}
+    % NOTE: The default bullet can be changed by specifying it between [] in \item[]
+    \item \textbf{Development}: Many Deep Dives Into Business Processes and Systems
+    \item \textbf{Databases}: Managed Customer Relationship Management (CRM)
+    \item[$\rightarrow$] \textbf{Storage}: Oversaw Document Management Systems for Business Records
+    \item[$\rightarrow$] \textbf{Communication}: Led Business Meetings and Negotiations with Stakeholders
+    \item[$\ddot\smile$] \textbf{Sales}: Implemented Sales Strategies to Increase Revenue and Market Share
+    \item[$\ddot\smile$] \textbf{Management}: Directed Teams and Projects to Achieve Business Objectives
+  \end{resume_list}
+
+  %-----------%
+  % Education %
+  %-----------%
+
+  % CAUTION: Excessive color change makes a fun demo, but don't keep it
+  \definecolor{Heading}{HTML}{8d1e8c}
+  \definecolor{HRule}{HTML}{0a7903}
+
+  \section{Education \& Certifications}
+
+  \begin{resume_list}
+    \itemTitle{Neat-O University:}
+    \item \textbf{Bachelor of Science} in \textit{Business Management}
+    \item[] \textbf{Minors}: 1. Marketing, 2. Finance
+    \vspace{0.5em}
+    \itemTitle{Certifications:}
+    \item \textbf{BMP} Business Management Professional
+    \item \textbf{CP} Certified Professional
+  \end{resume_list}
+
+  %------------%
+  % Experience %
+  %------------%
+
+  \section{Work Experience}
+
+  \experience{Power Business Ink}{Senior Business Engineer}{on-site}{2024 -- Present}
+  \experience{Consulting Corp}{Senior Business Consultant}{hybrid}{2017 -- 2024}
+  \experience{HealthCo Industries}{Junior Business Manager}{on-site}{2005 -- 2016}
+  \experience{Aura Systems}{Product Strategy Lead}{hybrid}{1999 -- 2005}
+  \experience{Fuzion Labs}{Business Operations Manager}{on-site}{1980 -- 1999}
+
+  %----------------------------%
+  % Extracurricular Activities %
+  %----------------------------%
+
+  \section{Volunteer Experience}
+
+  \experience{Business Mentors}{Mentor}{}{2014 -- Present}
+  \experience{Angel Investors}{Financial Advisor}{}{2005 -- 2015}
+
+  \section{Another Section}
+
+  \begin{resume_list}
+    \item More text to represent an area where text could be placed
+    \item[] Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+  \end{resume_list}
+
+\end{document}

@@ -1,0 +1,37 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: ["master"]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  Publish:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Clone Repo
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: sudo apt-get update; sudo apt-get install -y texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-extra
+
+      - name: Generate PDFs
+        run: "make; mv *.pdf assets/"
+
+      - name: Build Site
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+
+      - name: Upload Build
+        uses: actions/upload-pages-artifact@v3
+
+      - name: Deploy Site
+        id: deployment
+        uses: actions/deploy-pages@v4
