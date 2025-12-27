@@ -22,10 +22,15 @@
 \usepackage{calc}
 \usepackage{needspace}
 \usepackage{xcolor}
+\usepackage{xspace}
 
 %------------------%
 % Basic Page Setup %
 %------------------%
+
+% UTF-8 Encoding
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 
 % Font: Sans-Serif
 %\usepackage[sfdefault]{FiraSans}
@@ -102,6 +107,14 @@
   \end{addmargin}
   %\vspace{0.5em}
 }
+
+% Feature: Mini spacer, that ensures ATS sees full separation
+% User with Foo \spacer Fuz
+\newcommand{\Spacer}[0]{\xspace~ --- ~\xspace}
+
+% Feature: Smaller spacer, that allows tighter word cramming
+% User with Foo \pipe Fuz
+\newcommand{\spacer}[0]{\xspace~ $|$ ~\xspace}
 
 %------------------%
 % Special Features %
@@ -185,7 +198,7 @@
 \newcommand{\tinysection}[1]{
   \phantomsection
   \addcontentsline{toc}{section}{#1}
-  {\large{\bfseries\color{Heading}\uppercase{#1}} {\color{HRule} |}}
+  {\large{\bfseries\color{Heading}\uppercase{#1}} {\color{HRule} ---}}
 }
 
 % Feature: Repurposed \heading, used for simplified work experience

@@ -27,18 +27,18 @@
   \documentTitle{J. Doe}{
 
     \redaction{
-      \raisebox{-0.05\height} \faPhone\ [redacted - web copy] ~ | ~
-      \raisebox{-0.15\height} \faEnvelope\ [redacted - web copy] ~ | ~
+      \raisebox{-0.05\height} \faPhone\ [redacted - web copy] \Spacer
+      \raisebox{-0.15\height} \faEnvelope\ [redacted - web copy] \Spacer
     }{
       % Contact Information
       \href{tel:1234567890}{
-        \raisebox{-0.05\height} \faPhone\ 123-456-7890} ~ | ~
+        \raisebox{-0.05\height} \faPhone\ 123-456-7890} \Spacer
       \href{mailto:user@domain.tld}{
-        \raisebox{-0.15\height} \faEnvelope\ USER@domain.tld} ~ | ~
+        \raisebox{-0.15\height} \faEnvelope\ USER@domain.tld} \Spacer
     }
     % Social Links
     \href{https://linkedin.com/in/USER/}{
-      \raisebox{-0.15\height} \faLinkedin\ linkedin.com/in/USER} ~ | ~
+      \raisebox{-0.15\height} \faLinkedin\ linkedin.com/in/USER} \Spacer
     \href{https://github.com/USER}{
       \raisebox{-0.15\height} \faGithub\ github.com/USER}
   }
@@ -47,9 +47,9 @@
   % Title / Skills %
   %----------------%
 
-  \vspace{-1.5em}
-  \documentTitleTwo{Senior Business Person}{\textbf{
-    Business ~ $|$ ~ Hobbies ~ $|$ ~ Awesomeness 
+  \vspace{-1.5em}  % NOTE: Adjust vspace values to fine-tune header spacing
+  \documentTitleTwo{Senior Business Person\vspace{-0.0em}}{\textbf{
+    Business \spacer Hobbies \spacer Awesomeness
   }}
 
   %---------%
