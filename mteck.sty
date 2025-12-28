@@ -105,7 +105,7 @@
   \begin{addmargin}[1.5em]{1.5em}
     #1
   \end{addmargin}
-  \vspace{-0.5em}
+  \vspace{-0.25em}
 }
 
 % Feature: Mini spacer, that ensures ATS sees full separation
@@ -252,8 +252,7 @@
 % Feature: Template for itemized lists
 % Usage: \begin{resume_list} [items] \end{resume_list}
 \newenvironment{resume_list}{
-  %\vspace{-0.5em}
-  \needspace{5em}
+  \vspace{-0.4em}\needspace{5em}
   \begin{itemize}[itemsep=-2px, parsep=1pt, leftmargin=2em]
 }{
   \end{itemize}
