@@ -1,16 +1,11 @@
-name: Build and Deploy
+name: CI/CD
 
 on:
   push:
-    branches: ["master"]
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+    branches: ["*"]
 
 jobs:
-  Publish:
+  Test:
     runs-on: ubuntu-latest
     steps:
 
@@ -20,18 +15,11 @@ jobs:
       - name: Install Dependencies
         run: sudo apt-get update; sudo apt-get install -y texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-extra
 
-      - name: Generate PDFs
-        run: "make; mv *.pdf assets/"
+      - name: Build Release
+        run: make release-v0.0.0.tgz
 
       - name: Build Site
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./
           destination: ./_site
-
-      - name: Upload Build
-        uses: actions/upload-pages-artifact@v3
-
-      - name: Deploy Site
-        id: deployment
-        uses: actions/deploy-pages@v4

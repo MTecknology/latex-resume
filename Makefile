@@ -25,15 +25,23 @@ all: assets/Resume.pdf assets/CV.pdf
 
 # Build a PDF document
 %.pdf: mteck.sty %.tex
-	$(RM) $*.pdf
-	pdflatex -halt-on-error -file-line-error $*.tex
-	# Requires second run for proper linking
-	pdflatex -halt-on-error -file-line-error $*.tex
-	sync; $(RM) $*.log $*.out $*.aux
+	$(RM) $@
+	pdflatex -halt-on-error -file-line-error -output-directory=$(dir $@) $*.tex
+	# Second run for linking
+	pdflatex -halt-on-error -file-line-error -output-directory=$(dir $@) $*.tex
+	sync; $(RM) $(dir $@)*.log $(dir $@)*.out $(dir $@)*.aux
+
+# Create a release tarball
+release-%.tgz: all
+	$(RM) -r release
+	mkdir -p release/examples
+	cp Makefile assets/*.pdf assets/*.tex release/examples
+	sed 's/: UNRELEASED/: $*/' mteck.sty >release/mteck.sty
+	cd release; tar -czf ../release-$*.tgz *
 
 # Remove non-source files
 clean:
-	$(RM) *.pdf
-	$(RM) *.log *.out *.aux
+	$(RM) *.pdf */*.pdf
+	$(RM) *.log *.out *.aux release-*.tgz
 
 .PHONY: all clean

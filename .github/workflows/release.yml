@@ -1,0 +1,30 @@
+name: Release Template
+
+on:
+  push:
+    tags: ["v*"]
+
+jobs:
+  Publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+
+      - name: Clone Repo
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: sudo apt-get update; sudo apt-get install -y texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-extra
+
+      - name: Build Release
+        run: make release-${GITHUB_REF#refs/tags/}.tgz
+
+      - name: Upload to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            release-*.tgz
+            release/mteck.sty
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

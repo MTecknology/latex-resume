@@ -2,3 +2,7 @@
 *.pdf
 *.aux
 *.log
+
+# Makefile
+release/*
+*.tgz
