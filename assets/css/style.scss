@@ -1,0 +1,8 @@
+---
+---
+@import "{{ site.theme }}";
+
+// these blurbs are tacky and confuse end users
+.creds {
+  display: none !important;
+}
