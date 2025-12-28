@@ -17,10 +17,12 @@ Usage
 Demonstration
 -------------
 
-These documents were automatically built from [this template repository](https://github.com/MTecknology/latex-resume).
+These documents were automatically built from [this template](https://github.com/MTecknology/latex-resume/blob/master/mteck.sty).
 
-- [**View Resume**](assets/Resume.pdf)
-- [**View CV**](assets/CV.pdf)
+- [**View an Example Resume**](assets/Resume.pdf) (built from [Resume.tex](assets/Resume.tex))
+- [**View an Example CV**](assets/CV.pdf) (built from [CV.tex](assets/CV.tex))
+- [**View my Actual Resume**](https://resume.lustfield.net)
+- [**View my Actual CV**](https://cv.lustfield.net)
 
 Features
 --------
