@@ -19,8 +19,8 @@ Demonstration
 
 These documents were automatically built from [this template](https://github.com/MTecknology/latex-resume/blob/master/mteck.sty).
 
-- [**View an Example Resume**](assets/Resume.pdf) (built from [Resume.tex](assets/Resume.tex))
-- [**View an Example CV**](assets/CV.pdf) (built from [CV.tex](assets/CV.tex))
+- [**View an Example Resume**](assets/Resume.pdf) (built from [Resume.tex](https://raw.githubusercontent.com/MTecknology/latex-resume/refs/heads/master/assets/Resume.tex))
+- [**View an Example CV**](assets/CV.pdf) (built from [CV.tex](https://raw.githubusercontent.com/MTecknology/latex-resume/refs/heads/master/assets/CV.tex))
 - [**View my Actual Resume**](https://resume.lustfield.net)
 - [**View my Actual CV**](https://cv.lustfield.net)
 
