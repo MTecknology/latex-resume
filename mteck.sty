@@ -97,6 +97,9 @@
 % Font: Underline
 \newcommand{\U}[1]{\underline{#1}}
 
+% Tab (between \quad and \qquad)
+\newcommand{\tab}[0]{\hspace{1.5em}}
+
 % Feature: Creates a "paragraph" of text,
 % intended to fit below sections and headings
 % Use with \p{Some Text}
@@ -107,6 +110,10 @@
   \end{addmargin}
   \vspace{-0.25em}
 }
+
+% Feature: Creates a "paragraph" of text with a leading tab
+% Use with \pTab{Some Long Text}
+\newcommand{\pTab}[1]{\p{\tab#1}}
 
 % Feature: Mini spacer, that ensures ATS sees full separation
 % User with Foo \spacer Fuz
