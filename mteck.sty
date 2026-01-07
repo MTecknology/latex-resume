@@ -27,6 +27,10 @@
 \usepackage{xcolor}
 \usepackage{xspace}
 
+% Improved underlines
+% Features: https://texdoc.org/serve/ulem/0
+\usepackage[normalem]{ulem}
+
 %------------------%
 % Basic Page Setup %
 %------------------%
@@ -98,7 +102,7 @@
 \newcommand{\BIt}[1]{\textbf{\textit{#1}}}
 
 % Font: Underline
-\newcommand{\U}[1]{\underline{#1}}
+\newcommand{\U}[1]{\uline{#1}}
 
 % Tab (between \quad and \qquad)
 \newcommand{\tab}[0]{\hspace{1.5em}}
@@ -272,7 +276,7 @@
 % Usage: \itemTitle{Title}
 \newcommand{\itemTitle}[1]{
   \needspace{5em}
-  \item[] \underline{#1}
+  \item[] \uline{#1}
   \vspace{0.5em}
 }
 
