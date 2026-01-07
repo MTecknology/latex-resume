@@ -14,6 +14,7 @@
 
 % Required packages
 \usepackage[empty]{fullpage}
+\usepackage{changepage}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{fancyhdr}
@@ -107,10 +108,10 @@
 % Use with \p{Some Text}
 \newcommand{\p}[1]{
   \vspace{0.5em}
-  \begin{addmargin}[1.5em]{1.5em}
+  \begin{adjustwidth}{1.0em}{1.0em}
     #1
-  \end{addmargin}
-  \vspace{-0.25em}
+  \end{adjustwidth}
+  %\vspace{-0.25em}
 }
 
 % Feature: Creates a "paragraph" of text with a leading tab
@@ -222,7 +223,7 @@
 % Usage: \heading{Left}{Right}
 \newcommand{\heading}[2]{
   \needspace{7em}
-  \hspace{1em}#1\hfill#2\\
+  {\large\hspace{1em}#1\hfill#2}\\
 }
 
 %------------------------%
@@ -241,7 +242,7 @@
 
 % Same as \heading without suggested page break
 \newcommand{\subhead}[2]{
-  \hspace{1em}#1\hfill#2\\
+  {\large\hspace{1em}#1\hfill#2}\\
 }
 
 % Same as \subhead with bold font
@@ -294,12 +295,3 @@
   \addtolength{\textheight}{-2em}
   \fancyfoot[C]{\footnotesize #1}
 }
-
-% Feature: Alternative to addmargin that mimics scrextend
-% https://tex.stackexchange.com/questions/507939/standard-alternative-to-addmargin-environment
-\newenvironment{addmargin}[2][\empty]{\par
-  \rightskip=#2\relax
-  \ifx\empty#1\relax \leftskip=\rightskip
-  \else \leftskip=#1\relax
-  \fi
-}{\par}
