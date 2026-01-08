@@ -111,7 +111,7 @@
 % intended to fit below sections and headings
 % Use with \p{Some Text}
 \newcommand{\p}[1]{
-  \vspace{0.5em}
+  \vspace{0.25em}
   \begin{adjustwidth}{1.0em}{1.0em}
     #1
   \end{adjustwidth}
@@ -200,19 +200,25 @@
 
 % Feature: Section heading with horizontal rule
 % Usage: \section{Title}
-\titleformat{\section}{
-  \vspace{-1.0em}% CAREFUL!
-  \needspace{7em}
-  \color{Heading}
-  \raggedright\large\bfseries
-}{}{0em}{\uppercase}[\color{HRule}\titlerule]
+% Reference: \titleformat{<command>}[<shape>]
+%   {<format>}{<label>}{<sep>}{<before-code>}[<after-code>]
+\titleformat{\section}
+  {\color{Heading}\large\bfseries}
+  {}
+  {0em}
+  {\MakeUppercase}
+  [\color{HRule}\titlerule]
+
+% Adjust space around section headings
+% Reference: \titlespacing{command}{left}{before-sep}{after-sep}[right-sep]
+\titlespacing*{\section}{0pt}{1.0em}{0.5em}
 
 % Feature: Section heading with separator and content on same line
 % Usage: \tinysection{Title}
 \newcommand{\tinysection}[1]{
   \phantomsection
   \addcontentsline{toc}{section}{#1}
-  {\large{\bfseries\color{Heading}\uppercase{#1}} {\color{HRule} ---}}
+  \noindent{\large\bfseries\color{Heading}\MakeUppercase{#1}} {\color{HRule} ---}
 }
 
 % Feature: Repurposed \heading, used for simplified work experience
@@ -266,25 +272,26 @@
 % Feature: Template for itemized lists
 % Usage: \begin{resume_list} [items] \end{resume_list}
 \newenvironment{resume_list}{
-  \vspace{-0.4em}\needspace{5em}
-  \begin{itemize}[itemsep=-2px, parsep=1pt, leftmargin=2em]
+  \needspace{5em}
+  \begin{itemize}[itemsep=-0.2em, parsep=1pt, leftmargin=2em]
 }{
   \end{itemize}
 }
 
 % Feature: Formats an item to use as an itemized title
-% Usage: \itemTitle{Title}
+% Usage: \itemTitle{Text:}
+% Note: Use ':' or similar to prevent ATS seeing this as a heading
 \newcommand{\itemTitle}[1]{
-  \needspace{5em}
+  \needspace{4em}
   \item[] \uline{#1}
-  \vspace{0.5em}
 }
 
 % Feature: Alternative display of \itemTitle
-% Usage: \itemHeading{Title}
+% Usage: \itemHeading{Text:}
+% Note: Use ':' or similar to prevent ATS seeing this as a heading
 \newcommand{\itemHeading}[1]{
-  \needspace{5em}
-  \vspace{0.5em}
+  \needspace{4em}
+  \vspace{0.25em}
   \item[] \textbf{#1}
 }
 
