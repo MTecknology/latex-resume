@@ -157,6 +157,10 @@
   \fi
 }
 
+% Feature: ATS Heading (HACK)
+% Insert a hidden white dot (.) if first element on page
+\newcommand{\atsBreak}[0]{\ifdim\pagetotal=0pt{\color{white}\hspace{-0.2em}.}\fi}
+
 % Create a boolean variable named redact
 \newif\ifredact
 
@@ -209,7 +213,7 @@
   {\color{Heading}\large\bfseries}
   {}
   {0em}
-  {\MakeUppercase}
+  {\atsBreak\MakeUppercase}
   [\color{HRule}\titlerule]
 
 % Adjust space around section headings
@@ -236,7 +240,7 @@
 % Usage: \heading{Left}{Right}
 \newcommand{\heading}[2]{
   \needspace{7em}
-  {\large\hspace{1em}#1\hfill#2}\\
+  \atsBreak{\large\hspace{1em}#1\hfill#2}\\
 }
 
 %------------------------%
