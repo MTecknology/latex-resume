@@ -72,15 +72,18 @@
 \urlstyle{same}
 
 % Adjust Margins
-\addtolength{\oddsidemargin}{-0.7in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1.19in}
-\addtolength{\topmargin}{-0.7in}
-\addtolength{\textheight}{1.4in}
+\usepackage[
+  left=0.3in,
+  right=0.3in,
+  top=0.2in,
+  bottom=0.2in,
+  headheight=0pt,
+  headsep=0pt,
+  footskip=0.4em
+]{geometry}
 \setlength{\multicolsep}{-3.0pt}
 \setlength{\columnsep}{-1pt}
 \setlength{\tabcolsep}{0pt}
-\setlength{\footskip}{0.4em}
 \raggedbottom
 \raggedright
 
@@ -211,7 +214,7 @@
 
 % Adjust space around section headings
 % Reference: \titlespacing{command}{left}{before-sep}{after-sep}[right-sep]
-\titlespacing*{\section}{0pt}{1.0em}{0.5em}
+\titlespacing*{\section}{0pt}{1.0em}{0.75em}
 
 % Feature: Section heading with separator and content on same line
 % Usage: \tinysection{Title}
@@ -225,7 +228,7 @@
 % Usage: \experience{Company}{Role}{Presence}{Dates}
 \newcommand{\experience}[4]{
   \hspace{1em}#1 -- \textbf{#2}\hfill\textit{#3}
-  \ifx\\#3\\\else ~ $|$ \fi
+  \ifx#3\else ~ $|$ \fi
   \makebox[6.7em][l]{~#4}\\
 }
 
@@ -272,7 +275,7 @@
 % Feature: Template for itemized lists
 % Usage: \begin{resume_list} [items] \end{resume_list}
 \newenvironment{resume_list}{
-  \needspace{5em}
+  \needspace{5em}\vspace{-0.25em}
   \begin{itemize}[itemsep=-0.2em, parsep=1pt, leftmargin=2em]
 }{
   \end{itemize}
