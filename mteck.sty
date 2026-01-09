@@ -2,7 +2,7 @@
 % MTecknology's Resume/CV Style for LaTeX %
 %-----------------------------------------%
 % Source:  https://github.com/MTecknology/latex-resume
-% Author: Michael Lustfield
+% Author:  Michael Lustfield
 % Version: UNRELEASED
 % License: CC-BY-4
 % - https://creativecommons.org/licenses/by/4.0/legalcode.txt
@@ -14,16 +14,18 @@
 
 % Required packages
 \usepackage[empty]{fullpage}
+\usepackage{calc}
 \usepackage{changepage}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{fancyhdr}
 \usepackage{fontawesome5}
+\usepackage{hyperref}
 \usepackage{multicol}
 \usepackage{bookmark}
 \usepackage{lastpage}  % Requires second build!
-\usepackage{calc}
 \usepackage{needspace}
+\usepackage[ua]{pdfx}
 \usepackage{xcolor}
 \usepackage{xspace}
 
@@ -73,10 +75,10 @@
 
 % Adjust Margins
 \usepackage[
-  left=0.3in,
-  right=0.3in,
-  top=0.2in,
-  bottom=0.2in,
+  left=0.35in,
+  right=0.35in,
+  top=0.30in,
+  bottom=0.30in,
   headheight=0pt,
   headsep=0pt,
   footskip=0.4em
@@ -91,9 +93,18 @@
 \input{glyphtounicode}
 \pdfgentounicode=1
 
-%---------------------%
+% Reset Link Border
+\hypersetup{
+  pdfborder={0 0 0},
+  pdfinfo={
+    % Theme Documentation (not rendered)
+    Contributor=MTecknology,
+    Source=https://mtecknology.github.io/latex-resume/,
+  }}
+
+%--------------------%
 % Convenient Aliases %
-%---------------------%
+%--------------------%
 
 % Font: Bold
 \newcommand{\B}[1]{\textbf{#1}}
@@ -114,11 +125,11 @@
 % intended to fit below sections and headings
 % Use with \p{Some Text}
 \newcommand{\p}[1]{
-  \vspace{0.25em}
-  \begin{adjustwidth}{1.0em}{1.0em}
+  \vspace{0.5em}
+  \begin{adjustwidth}{1.5em}{1.5em}
     #1
   \end{adjustwidth}
-  %\vspace{-0.25em}
+  \vspace{-0.25em}
 }
 
 % Feature: Creates a "paragraph" of text with a leading tab
@@ -174,12 +185,15 @@
 % Feature: Centered title along with "subtitle" between HR
 % Usage: \documentTitle{Person Name}{Contact Details}
 \newcommand{\documentTitle}[2]{
+  \hypersetup{pdfinfo={
+    Owner=#1, Author=#1,
+    Subject=#1 CV/Resume,
+  }}
   \begin{center}
-    {\Huge\color{Title} \textbf{#1}}
+    {\Huge\color{Title}\textbf{\MakeUppercase{#1}}}
     \vspace{0.5em}
     {\color{HRule} \hrule}
-    \vspace{2pt}
-    %{\footnotesize\color{Title} #2}
+    \vspace{-2pt}
     \footnotesize{#2}
     \vspace{2pt}
     {\color{HRule} \hrule}
@@ -189,12 +203,15 @@
 % Feature: Second version of documentTitle, designed for dual use
 % Usage: \documentTitleTwo{Target Title}{Keywords}
 \newcommand{\documentTitleTwo}[2]{
+  \hypersetup{pdfinfo={
+    Title=#1,
+    Keywords=#2,
+  }}
   \begin{center}
     {\Large\color{Title} #1}
-    \vspace{0.7em}
+    \vspace{0.5em}
     {\color{HRule} \hrule}
-    \vspace{2pt}
-    %{\footnotesize\color{Title} #2}
+    \vspace{-2pt}
     \footnotesize{#2}
     \vspace{2pt}
     {\color{HRule} \hrule}
@@ -210,7 +227,7 @@
 % Reference: \titleformat{<command>}[<shape>]
 %   {<format>}{<label>}{<sep>}{<before-code>}[<after-code>]
 \titleformat{\section}
-  {\color{Heading}\large\bfseries}
+  {\raggedright\color{Heading}\large\bfseries}
   {}
   {0em}
   {\atsBreak\MakeUppercase}
@@ -280,7 +297,9 @@
 % Usage: \begin{resume_list} [items] \end{resume_list}
 \newenvironment{resume_list}{
   \needspace{5em}\vspace{-0.25em}
-  \begin{itemize}[itemsep=-0.2em, parsep=1pt, leftmargin=2em]
+  \begin{itemize}
+    \setlength{\itemsep}{-0.5em}
+    \setlength{\leftmargin}{2.0em}
 }{
   \end{itemize}
 }
