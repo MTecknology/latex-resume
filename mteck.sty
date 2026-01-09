@@ -26,7 +26,7 @@
 \usepackage{bookmark}
 \usepackage{lastpage}  % Requires second build!
 \usepackage{needspace}
-\usepackage[ua]{pdfx}
+%\usepackage[ua]{pdfx}
 \usepackage{xcolor}
 \usepackage{xspace}
 
@@ -78,8 +78,8 @@
 \usepackage[
   left=0.35in,
   right=0.35in,
-  top=0.30in,
-  bottom=0.30in,
+  top=0.25in,
+  bottom=0.25in,
   headheight=0pt,
   headsep=0pt,
   footskip=0.4em
@@ -94,14 +94,15 @@
 \input{glyphtounicode}
 \pdfgentounicode=1
 
-% Reset Link Border
 \hypersetup{
+  % No Link Border
   pdfborder={0 0 0},
   pdfinfo={
-    % Theme Documentation (not rendered)
+    % Theme Documentation (not added to PDF)
     Contributor=MTecknology,
     Source=https://mtecknology.github.io/latex-resume/,
-  }}
+  },
+}
 
 %--------------------%
 % Convenient Aliases %
@@ -194,7 +195,7 @@
     {\Huge\color{Title}\textbf{\MakeUppercase{#1}}}
     \vspace{0.5em}
     {\color{HRule} \hrule}
-    \vspace{-2pt}
+    \vspace{2pt}%TODO: Newer latex requires -2pt
     \footnotesize{#2}
     \vspace{2pt}
     {\color{HRule} \hrule}
@@ -206,18 +207,18 @@
 \ExplSyntaxOn
 \newcommand{\documentTitleTwo}[2]{
   % Convert to string and strip macros
-  \str_set:Ne \l_tmpa_str {\text_purify:n {#2}}
+  \str_set:Ne\tmpKW{\text_purify:n{#2}}
   % Remove $ from spacer
-  \str_replace_all:Nnn \l_tmpa_str{$}{}
+  \str_replace_all:Nnn\tmpKW{$}{}
   \hypersetup{pdfinfo={
     Title=#1,
-    Keywords={\str_use:N \l_tmpa_str},
+    Keywords={\str_use:N\tmpKW},
   }}
   \begin{center}
     {\Large\color{Title} #1}
     \vspace{0.5em}
     {\color{HRule} \hrule}
-    \vspace{-2pt}
+    \vspace{2pt}%TODO: Newer latex requires -2pt
     \footnotesize{#2}
     \vspace{2pt}
     {\color{HRule} \hrule}

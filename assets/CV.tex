@@ -49,7 +49,7 @@
   %----------------%
 
   \vspace{-1.5em}  % NOTE: Adjust vspace values to fine-tune header spacing
-  \documentTitleTwo{Senior Business Person\vspace{-0.0em}}{\textbf{
+  \documentTitleTwo{Senior Business Person}{\textbf{
     Business \spacer Hobbies\\
     Awesomeness
   }}
@@ -70,7 +70,10 @@
 
   I am a \U{strong} business person. My strengths are business administration and business development.
 
-  \begin{itemize}[itemsep=0px, parsep=1pt, leftmargin=2in]
+  \begin{itemize}
+    \setlength{\itemsep}{-0.4em}
+    \addtolength{\leftskip}{2.0in}
+    \setlength{\labelwidth}{2.5in}
 
     \itemHeading{\U{Business Administration}}
     \item[\textbf{Management}] People, Systems, \U{Operations}, Projects
