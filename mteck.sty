@@ -16,6 +16,7 @@
 \usepackage[empty]{fullpage}
 \usepackage{calc}
 \usepackage{changepage}
+\usepackage{expl3}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{fancyhdr}
@@ -202,10 +203,15 @@
 
 % Feature: Second version of documentTitle, designed for dual use
 % Usage: \documentTitleTwo{Target Title}{Keywords}
+\ExplSyntaxOn
 \newcommand{\documentTitleTwo}[2]{
+  % Convert to string and strip macros
+  \str_set:Ne \l_tmpa_str {\text_purify:n {#2}}
+  % Remove $ from spacer
+  \str_replace_all:Nnn \l_tmpa_str{$}{}
   \hypersetup{pdfinfo={
     Title=#1,
-    Keywords=#2,
+    Keywords={\str_use:N \l_tmpa_str},
   }}
   \begin{center}
     {\Large\color{Title} #1}
@@ -217,6 +223,7 @@
     {\color{HRule} \hrule}
   \end{center}
 }
+\ExplSyntaxOff
 
 %------------------------%
 % Headings / Subheadings %
